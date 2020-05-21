@@ -15,16 +15,24 @@
   <button data-bind="click: openView.bind(null, 2)">Material Design WC</button>
   <button data-bind="click: openView.bind(null, 3)">Ionic</button>
   <button data-bind="click: openView.bind(null, 4)">Weightless</button>
-  <button data-bind="click: closeView">Close</button>
 
-  <!-- ko with: selectedView -->
-  <div data-bind="template: {nodes: ko.utils.parseHtmlFragment(html())}">
+  <div class="main-container">
+    <div class="left-column">
+
+    </div>
+
+    <div class="right-column">
+      <!-- ko with: selectedView -->
+      <div data-bind="template: {nodes: ko.utils.parseHtmlFragment(html())}">
+      </div>
+
+      <div>
+        Selected person: <span data-bind="text: selectedPerson().name"></span>
+      </div>
+      <!-- /ko -->
+    </div>
   </div>
 
-  <div>
-    Selected person: <span data-bind="text: selectedPerson().name"></span>
-  </div>
-  <!-- /ko -->
 
   <script type="text/javascript" src="dist/index.js"></script>
 </body>

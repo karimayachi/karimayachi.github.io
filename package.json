@@ -1,0 +1,30 @@
+{
+  "name": "knockout-webcomponents-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --config webpack.release.config",
+    "dev": "webpack-dev-server --config webpack.dev.config"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@ionic/core": "^5.1.0",
+    "@material/mwc-button": "^0.14.1",
+    "@material/mwc-fab": "^0.14.1",
+    "@material/mwc-formfield": "^0.14.1",
+    "@material/mwc-icon-button": "^0.15.0",
+    "@material/mwc-select": "^0.14.1",
+    "@material/mwc-textfield": "^0.14.1",
+    "weightless": "0.0.37",
+    "wired-elements": "^2.0.5"
+  }
+}
