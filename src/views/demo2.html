@@ -1,26 +1,28 @@
 <div class="material-theme">
-    <mwc-button data-bind="click: add">Add</mwc-button>
-    <mwc-button data-bind="click: funk">Fuck up from within VM</mwc-button>
-    <mwc-button onclick="document.getElementsByTagName('mwc-textfield')[0].value = 'FUCKUP';">Fuck up from JS outside VM</mwc-button>
-    <mwc-button data-bind="click: flunk">change selected</mwc-button>
 
     <h1>Material Design Web Components</h1>
-    <!-- ko template: { 'foreach': persons } -->
-    <div class="input-row">
-        <mwc-textfield data-bind="properties: { value: name, label: $parent.placeholder }"></mwc-textfield>
-        <mwc-icon-button icon="delete" data-bind="click: $parent.delete"></mwc-icon-button>
+    <ul data-bind="foreach: people">
+        <li data-bind="style: { 'text-decoration': retired() ? 'line-through' : '' } ">
+            [<span data-bind="text: id"></span>] <span data-bind="text: firstname"></span>
+            <mwc-icon-button icon="delete" data-bind="click: $parent.delete"></mwc-icon-button>
+        </li>
+    </ul>
+    <mwc-button data-bind="click: add">Add</mwc-button>
+
+
+    <div style="margin: 40px 0px 150px;">
+        <mwc-select label="persons" data-bind="select: { options: people, property: { value: selectedPerson }}" style="margin-bottom: 20px;">
+            <mwc-list-item data-bind="properties: { value: $value() }, text: firstname"></mwc-list-item>
+        </mwc-select>
+
+        <div data-bind="with: selectedPerson">
+            <mwc-textfield data-bind="properties: { value: firstname }"></mwc-textfield>
+            <mwc-textfield data-bind="properties: { value: lastname }"></mwc-textfield>
+            <mwc-formfield label="Retired">
+                <mwc-checkbox data-bind="properties: { checked: retired }"></mwc-checkbox>
+            </mwc-formfield>
+        </div>
     </div>
-    <!-- /ko -->
-
-    <mwc-select label="persons" data-bind="select: { options: persons, property: { value: selectedPerson }}">
-        <mwc-list-item data-bind="properties: { value: $value() }, text: name"></mwc-list-item>
-    </mwc-select>
-
-    <mwc-formfield label="Click me">
-        <mwc-checkbox data-bind="properties: { checked: personChecked }"></mwc-checkbox>
-    </mwc-formfield>
-
-
 </div>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">

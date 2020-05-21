@@ -1,5 +1,6 @@
 import * as ko from '../library/knockout-latest-patched'; // Contains patch for https://github.com/knockout/knockout/issues/2500 and https://github.com/knockout/knockout/issues/2523
 import { Observable } from '../library/knockout-latest-patched';
+import '../library/knockout-webcomponents'; // the two-way binding library for Knockout and WebComponents
 import PeopleViewModel from './people.viewmodel';
 
 export default class MainViewModel {

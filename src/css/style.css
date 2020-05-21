@@ -41,10 +41,18 @@ a {
     font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.material-theme ul mwc-icon-button {
+    vertical-align: middle;
+}
+
 .weightless-theme {
     font-family: 'Roboto Condensed', 'Helvetica Neue', sans-serif;
 }
 
 .wired-theme {
     font-family: 'Gloria Hallelujah', cursive;
+}
+
+.wired-theme ul wired-icon-button {
+    vertical-align: middle;
 }

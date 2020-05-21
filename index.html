@@ -50,12 +50,7 @@
       </div>
 
       <div class="container-body" data-bind="with: vm">
-        <div data-bind="template: {nodes: ko.utils.parseHtmlFragment(html())}">
-        </div>
-
-        <div>
-          Selected person: <span data-bind="text: selectedPerson().name"></span>
-        </div>
+        <div data-bind="template: {nodes: ko.utils.parseHtmlFragment(html())}"></div>
       </div>
     </div>
   </div>
