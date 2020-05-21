@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Knockout WebComponents demo</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link href="src/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <button data-bind="click: openView.bind(null, 1)">Wired Elements</button>
+  <button data-bind="click: openView.bind(null, 2)">Material Design WC</button>
+  <button data-bind="click: openView.bind(null, 3)">Ionic</button>
+  <button data-bind="click: openView.bind(null, 4)">Weightless</button>
+  <button data-bind="click: closeView">Close</button>
+
+  <!-- ko with: selectedView -->
+  <div data-bind="template: {nodes: ko.utils.parseHtmlFragment(html())}">
+  </div>
+
+  <div>
+    Selected person: <span data-bind="text: selectedPerson().name"></span>
+  </div>
+  <!-- /ko -->
+
+  <script type="text/javascript" src="dist/index.js"></script>
+</body>
+
+</html>
