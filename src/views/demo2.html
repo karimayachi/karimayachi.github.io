@@ -1,0 +1,27 @@
+<div class="material-theme">
+    <mwc-button data-bind="click: add">Add</mwc-button>
+    <mwc-button data-bind="click: funk">Fuck up from within VM</mwc-button>
+    <mwc-button onclick="document.getElementsByTagName('mwc-textfield')[0].value = 'FUCKUP';">Fuck up from JS outside VM</mwc-button>
+    <mwc-button data-bind="click: flunk">change selected</mwc-button>
+
+    <h1>Material Design Web Components</h1>
+    <!-- ko template: { 'foreach': persons } -->
+    <div class="input-row">
+        <mwc-textfield data-bind="properties: { value: name, label: $parent.placeholder }"></mwc-textfield>
+        <mwc-icon-button icon="delete" data-bind="click: $parent.delete"></mwc-icon-button>
+    </div>
+    <!-- /ko -->
+
+    <mwc-select label="persons" data-bind="select: { options: persons, property: { value: selectedPerson }}">
+        <mwc-list-item data-bind="properties: { value: $value() }, text: name"></mwc-list-item>
+    </mwc-select>
+
+    <mwc-formfield label="Click me">
+        <mwc-checkbox data-bind="properties: { checked: personChecked }"></mwc-checkbox>
+    </mwc-formfield>
+
+
+</div>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">

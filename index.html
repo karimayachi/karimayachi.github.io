@@ -11,25 +11,52 @@
 
 <body>
 
-  <button data-bind="click: openView.bind(null, 1)">Wired Elements</button>
-  <button data-bind="click: openView.bind(null, 2)">Material Design WC</button>
-  <button data-bind="click: openView.bind(null, 3)">Ionic</button>
-  <button data-bind="click: openView.bind(null, 4)">Weightless</button>
+
 
   <div class="main-container">
-    <div class="left-column">
+    <div class="container left-container">
+      <div class="container-header">
+        ViewModel demo
+      </div>
 
+      <div class="container-body" data-bind="with: vm">
+        <ul data-bind="foreach: people">
+          <li data-bind="style: { 'text-decoration': retired() ? 'line-through' : '' } ">
+            [<span data-bind="text: id"></span>] <span data-bind="text: firstname"></span> <a href="#" data-bind="click: $parent.delete">(x)</a>
+          </li>
+        </ul>
+
+        <button data-bind="click: add">Add</button>
+
+        <div style="margin-top: 20px;">
+          <select data-bind="value: selectedPerson, options: people, optionsText: 'firstname'"></select>
+
+          <div data-bind="with: selectedPerson">
+            First name: <input type="text" data-bind="textInput: firstname">
+            Last name: <input type="text" data-bind="textInput: lastname">
+            <input type="checkbox" data-bind="checked: retired" id="retired-cb"><label for="retired-cb">Retired</label>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="right-column">
-      <!-- ko with: selectedView -->
-      <div data-bind="template: {nodes: ko.utils.parseHtmlFragment(html())}">
+    <div class="container right-container">
+      <div class="container-header">
+        App demo
+        <button data-bind="click: openView.bind(null, 1)">Wired Elements</button>
+        <button data-bind="click: openView.bind(null, 2)">Material Design WC</button>
+        <button data-bind="click: openView.bind(null, 3)">Ionic</button>
+        <button data-bind="click: openView.bind(null, 4)">Weightless</button>
       </div>
 
-      <div>
-        Selected person: <span data-bind="text: selectedPerson().name"></span>
+      <div class="container-body" data-bind="with: vm">
+        <div data-bind="template: {nodes: ko.utils.parseHtmlFragment(html())}">
+        </div>
+
+        <div>
+          Selected person: <span data-bind="text: selectedPerson().name"></span>
+        </div>
       </div>
-      <!-- /ko -->
     </div>
   </div>
 

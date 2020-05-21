@@ -1,0 +1,24 @@
+<button data-bind="click: add">Add</button>
+<button data-bind="click: funk">Fuck up from within VM</button>
+<button data-bind="click: flunk">change selected</button>
+
+<h1>Ionic</h1>
+<!-- ko template: { 'foreach': persons } -->
+<ion-item>
+  <ion-label position="floating" data-bind="text: $parent.placeholder">Tik iets</ion-label>
+  <ion-input data-bind="properties: { value: name }"></ion-input>
+</ion-item>
+<!-- /ko -->
+
+<ion-select data-bind="select: { options: persons, property: { value: selectedPerson }}" okText="Okay" cancelText="Dismiss">
+  <ion-select-option data-bind="properties: { value: $value() }, text: name"></ion-select-option>
+</ion-select>
+
+<ion-item>
+  <ion-label>Click me</ion-label>
+  <ion-checkbox data-bind="properties: { checked: personChecked }"></ion-checkbox>
+</ion-item>
+
+<ion-button onclick="document.getElementsByTagName('ion-input')[0].value = 'FUCKUP';">Fuck up from JS outside VM</ion-button>
+
+<link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet">

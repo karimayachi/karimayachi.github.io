@@ -1,0 +1,25 @@
+<div class="weightless-theme">
+    <button data-bind="click: add">Add</button>
+    <button data-bind="click: funk">Fuck up from within VM</button>
+    <button data-bind="click: flunk">change selected</button>
+
+    <h1>Weightless</h1>
+    <!-- ko template: { 'foreach': persons } -->
+    <wl-textfield data-bind="properties: { value: name, label: $parent.placeholder }"></wl-textfield>
+    <!-- /ko -->
+
+    <wl-select label="Select something" data-bind="select: { options: persons, property: { value: selectedPerson }}">
+        <option data-bind="attr: { value: $value() }, text: name"></option>
+    </wl-select>
+
+    <wl-checkbox data-bind="properties: { checked: personChecked }"></wl-checkbox> Click me
+
+    <wl-divider></wl-divider>
+
+    <wl-button onclick="document.getElementsByTagName('wl-textfield')[0].value = 'FUCKUP';">Fuck up from JS outside VM
+    </wl-button>
+</div>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto+Slab:300,400,700"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">

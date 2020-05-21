@@ -1,0 +1,21 @@
+<div class="wired-theme">
+    <button data-bind="click: add">Add</button>
+    <button data-bind="click: funk">Fuck up from within VM</button>
+    <button data-bind="click: flunk">change selected</button>
+
+    <h1>Wired</h1>
+    <!-- ko template: { 'foreach': persons } -->
+    <wired-input data-bind="properties: { value: name, placeholder: $parent.placeholder }"></wired-input>
+    <!-- /ko -->
+
+    <wired-combo data-bind="select: { options: persons, property: { selected: selectedPerson }}">
+        <wired-item data-bind="properties: { value: $value() }, text: name"></wired-item>
+    </wired-combo>
+
+    <wired-checkbox data-bind="properties: { checked: personChecked }">Click me</wired-checkbox>
+
+    <wired-button onclick="document.getElementsByTagName('wired-input')[0].value = 'FUCKUP';">Fuck up from JS outside VM
+    </wired-button>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet"> 

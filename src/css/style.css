@@ -1,0 +1,50 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+	border: 1px solid #aaa;
+	padding: 4px 9px;
+	font-size: 13px;
+}
+
+a {
+	text-decoration: none;
+	font-size: 12px;
+	color: #ac4343;
+}
+
+.main-container {
+    display: flex;
+}
+
+.container-header {
+	font-size: 24px;
+	background-color: #edf7ed;
+	padding: 12px;
+}
+
+.container-body {
+	padding: 13px;
+}
+
+.container {
+	width: 100%;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	margin: 50px 10px;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.material-theme {
+    font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.weightless-theme {
+    font-family: 'Roboto Condensed', 'Helvetica Neue', sans-serif;
+}
+
+.wired-theme {
+    font-family: 'Gloria Hallelujah', cursive;
+}
