@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = [
     {
         mode: 'production',
@@ -11,7 +13,10 @@ module.exports = [
           }]
         },
         resolve: {
-            extensions: ['.tsx', '.ts', '.js']
+            extensions: ['.tsx', '.ts', '.js'],
+            alias: {
+              knockout: path.resolve(__dirname, 'src/library/knockout-latest-patched.js')
+            }
         },
         output: {
           path: __dirname + '/dist',
