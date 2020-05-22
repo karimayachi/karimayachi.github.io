@@ -15,7 +15,7 @@ export default class PeopleViewModel {
     }
 
     add = (): void => {
-        let newPerson: Person = new Person('---', '---', this.people().length + 1);
+        let newPerson: Person = new Person('', '', this.people().length + 1);
         this.people.push(newPerson);
         this.selectedPerson(newPerson); 
     };

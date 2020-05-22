@@ -9,25 +9,19 @@
 
     <wired-button data-bind="click: add">Add</wired-button>
 
-    <wired-divider style="margin: 40px 0"></wired-divider>
-
-    <wired-card>
+    <wired-card style="margin: 40px 0">
         <wired-combo data-bind="select: { options: people, property: { selected: selectedPerson }}">
             <wired-item data-bind="properties: { value: $value() }, text: firstname"></wired-item>
         </wired-combo>*
 
         <div data-bind="with: selectedPerson">
-            <wired-input data-bind="properties: { value: firstname }"></wired-input>
-            <wired-input data-bind="properties: { value: lastname }"></wired-input>
+            <wired-input placeholder="Firstname" data-bind="properties: { value: firstname }"></wired-input>
+            <wired-input placeholder="Lastname" data-bind="properties: { value: lastname }"></wired-input>
             <wired-checkbox data-bind="properties: { checked: retired }">Retired</wired-checkbox>
         </div>
     </wired-card>
 
-    <wired-divider style="margin: 40px 0"></wired-divider>
-
-    * = the Wired select doesn't update on setting the value. This is a bug in Wired Elements
-    <!-- <wired-button onclick="document.getElementsByTagName('wired-input')[0].value = 'FUCKUP';">Fuck up from JS outside VM
-    </wired-button> -->
+    <div>* = the Wired select doesn't update on setting the value. This is a bug in Wired Elements</div>
 </div>
 
 <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">

@@ -1,25 +1,31 @@
 <div class="weightless-theme">
-    <button data-bind="click: add">Add</button>
-    <button data-bind="click: funk">Fuck up from within VM</button>
-    <button data-bind="click: flunk">change selected</button>
-
     <h1>Weightless</h1>
-    <!-- ko template: { 'foreach': persons } -->
-    <wl-textfield data-bind="properties: { value: name, label: $parent.placeholder }"></wl-textfield>
-    <!-- /ko -->
+    <ul data-bind="foreach: people">
+        <li data-bind="style: { 'text-decoration': retired() ? 'line-through' : '' } ">
+            [<span data-bind="text: id"></span>] <span data-bind="text: firstname"></span>
+            <wl-button fab inverted data-bind="click: $parent.delete"><wl-icon>delete</wl-icon></wl-button>
+        </li>
+    </ul>
+    <wl-button data-bind="click: add">Add</wl-button>
 
-    <wl-select label="Select something" data-bind="select: { options: persons, property: { value: selectedPerson }}">
-        <option data-bind="attr: { value: $value() }, text: name"></option>
-    </wl-select>
 
-    <wl-checkbox data-bind="properties: { checked: personChecked }"></wl-checkbox> Click me
+    <wl-card style="margin: 40px 0px; padding: 20px">
+        <wl-select label="People *" data-bind="select: { options: people, property: { value: selectedPerson }}">
+            <option data-bind="attr: { value: $value() }, text: firstname"></option>
+        </wl-select>
+    
+        <div data-bind="with: selectedPerson">
+            <wl-textfield label="Firstname" data-bind="properties: { value: firstname }"></wl-textfield>
+            <wl-textfield label="Lastname" data-bind="properties: { value: lastname }"></wl-textfield>
+            <wl-checkbox id="cb" data-bind="properties: { checked: retired }"></wl-checkbox>
+            <wl-label for="cb">Retired</wl-label>
+        </div>
+    </wl-card>
 
-    <wl-divider></wl-divider>
-
-    <wl-button onclick="document.getElementsByTagName('wl-textfield')[0].value = 'FUCKUP';">Fuck up from JS outside VM
-    </wl-button>
+    <div>* = Options are not updated if they're updated. Haven't looked into if it's a bug in Weightless or this library yet. </div>
 </div>
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto+Slab:300,400,700"
-    rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">

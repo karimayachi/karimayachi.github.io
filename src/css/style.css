@@ -37,6 +37,7 @@ a {
     overflow: hidden;
 }
 
+/* MATERIAL DESIGN COMPONENTS WEB COMPONENTS */
 .material-theme {
     font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -45,14 +46,35 @@ a {
     vertical-align: middle;
 }
 
+/* WEIGHTLESS */
 .weightless-theme {
     font-family: 'Roboto Condensed', 'Helvetica Neue', sans-serif;
 }
 
+wl-select, wl-textfield {
+	width: 48%;
+	display: inline-block;
+	margin: 10px 5px;
+}
+
+.weightless-theme ul wl-button {
+    vertical-align: middle;
+}
+
+/* WIRED ELEMENTS */
 .wired-theme {
     font-family: 'Gloria Hallelujah', cursive;
 }
 
 .wired-theme ul wired-icon-button {
     vertical-align: middle;
+}
+
+wired-card {
+	display: block;
+}
+
+/* IONIC ELEMENTS */
+.ionic-theme ul ion-button {
+	vertical-align: middle;
 }

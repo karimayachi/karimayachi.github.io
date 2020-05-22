@@ -1,24 +1,57 @@
-<button data-bind="click: add">Add</button>
-<button data-bind="click: funk">Fuck up from within VM</button>
-<button data-bind="click: flunk">change selected</button>
+<div class="ionic-theme">
+  <h1>Ionic</h1>
+  <ul data-bind="foreach: people">
+    <li data-bind="style: { 'text-decoration': retired() ? 'line-through' : '' } ">
+      [<span data-bind="text: id"></span>] <span data-bind="text: firstname"></span>
+      <ion-button size="small" color="danger" data-bind="click: $parent.delete">
+        <ion-icon size="small" slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </li>
+  </ul>
 
-<h1>Ionic</h1>
-<!-- ko template: { 'foreach': persons } -->
-<ion-item>
-  <ion-label position="floating" data-bind="text: $parent.placeholder">Tik iets</ion-label>
-  <ion-input data-bind="properties: { value: name }"></ion-input>
-</ion-item>
-<!-- /ko -->
+  <ion-button data-bind="click: add">Add</ion-button>
 
-<ion-select data-bind="select: { options: persons, property: { value: selectedPerson }}" okText="Okay" cancelText="Dismiss">
-  <ion-select-option data-bind="properties: { value: $value() }, text: name"></ion-select-option>
-</ion-select>
+  <ion-card style="margin-top: 40px;">
+    <ion-card-header>
+      <ion-card-subtitle>Select and edit the people list</ion-card-subtitle>
+      <ion-card-title>Edit person</ion-card-title>
+    </ion-card-header>
 
-<ion-item>
-  <ion-label>Click me</ion-label>
-  <ion-checkbox data-bind="properties: { checked: personChecked }"></ion-checkbox>
-</ion-item>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-select data-bind="select: { options: people, property: { value: selectedPerson }}"
+              placeholder="People">
+              <ion-select-option data-bind="properties: { value: $value() }, text: firstname"></ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-grid>
 
-<ion-button onclick="document.getElementsByTagName('ion-input')[0].value = 'FUCKUP';">Fuck up from JS outside VM</ion-button>
+      <ion-row data-bind="with: selectedPerson">
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Firstname</ion-label>
+            <ion-input data-bind="properties: { value: firstname }"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Lastname</ion-label>
+            <ion-input data-bind="properties: { value: lastname }"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col>
+          <ion-item>
+            <ion-label>Retired</ion-label>
+            <ion-checkbox data-bind="properties: { checked: retired }"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</div>
 
 <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet">

@@ -11,13 +11,13 @@
 
 
     <div style="margin: 40px 0px 150px;">
-        <mwc-select label="persons" data-bind="select: { options: people, property: { value: selectedPerson }}" style="margin-bottom: 20px;">
+        <mwc-select label="People" data-bind="select: { options: people, property: { value: selectedPerson }}" style="margin-bottom: 20px;">
             <mwc-list-item data-bind="properties: { value: $value() }, text: firstname"></mwc-list-item>
         </mwc-select>
 
         <div data-bind="with: selectedPerson">
-            <mwc-textfield data-bind="properties: { value: firstname }"></mwc-textfield>
-            <mwc-textfield data-bind="properties: { value: lastname }"></mwc-textfield>
+            <mwc-textfield label="Firstname" data-bind="properties: { value: firstname }"></mwc-textfield>
+            <mwc-textfield label="Lastname" data-bind="properties: { value: lastname }"></mwc-textfield>
             <mwc-formfield label="Retired">
                 <mwc-checkbox data-bind="properties: { checked: retired }"></mwc-checkbox>
             </mwc-formfield>
